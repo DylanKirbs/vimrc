@@ -57,6 +57,4 @@ This project is released under the [MIT License](LICENSE), which means you're fr
 
 Happy Vimming!
 
---- 
-
-Note: This is a simplified README template for your VIMRC configuration project. Make sure to adjust the details and instructions as needed before using it in your project repository.
+---
