@@ -159,7 +159,7 @@ augroup filetype_vim
 augroup END
 
 if version >= 703
-    let undodir = configdir . 'backup'
+    let &undodir='vim_backup'
     set undofile
     set undoreload=10000
 endif
@@ -169,7 +169,7 @@ endif
 augroup cursor_off
     autocmd!
     autocmd WinLeave * set nocursorline nocursorcolumn
-    autocmd WinEnter * set cursorline cursorcolumn
+    autocmd WinEnter * set cursorline nocursorcolumn
 augroup END
 
 
