@@ -43,6 +43,14 @@ As well as the following colorschemes:
 
 Feel free to explore the VIMRC file you've downloaded. It's a plain text file, so you can modify it using any text editor. Within the VIMRC, you'll find comments that explain various sections. If you're comfortable with Vimscript, you can tailor the settings to match your preferences.
 
+## Screenshots
+
+![Image of VIMRC](/attachements/vimrc.png)
+An image of the VIMRC file.
+
+![Output from ALE](attachements/ALE-Details.png)
+An example of the output from ALE.
+
 ## Contributions
 
 If you'd like to contribute to this project by suggesting improvements, fixing issues, or sharing your own customizations, you're welcome to do so. Simply fork this repository, make your changes, and submit a pull request.
