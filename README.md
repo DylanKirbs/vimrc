@@ -62,7 +62,7 @@ I highly recommend reading the [Vim documentation](http://vimdoc.sourceforge.net
 
 I recommend that you do your language specific settings in the `after/ftplugin` directory, this way you can keep your VIMRC clean and organized.
 
-This can be done by creating a file in the `after/ftplugin` directory with the name of the filetype, for example `after/ftplugin/python.vim` for Python specific settings.
+This can be done by creating a file in the `after/ftplugin` directory with the name of the filetype, for example `after/ftplugin/<filetype>.vim` for `<filetype>` specific settings.
 
 For example:
 ```vim
