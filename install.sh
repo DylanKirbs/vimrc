@@ -4,7 +4,6 @@
 # Usage: ./install.sh [options]
 # Options:
 #   -h, --help      Display this help message
-#   -f, --force     Force overwrite of existing .vimrc file
 #   -n, --neovim    Install additional neovim init file
 
 # Parse arguments
