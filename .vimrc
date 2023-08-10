@@ -44,14 +44,20 @@ set history=1000
 set nospell
 
 set number
-set cursorline
-set nocursorcolumn
 set shiftwidth=4
 set tabstop=4
-set expandtab
 set nobackup
 set scrolloff=10
 set nowrap
+
+" Use spaces by default, can be modified in /after/ftplugin/{filetype}.vim
+set expandtab
+
+" Cursor Type
+let &t_SI = "\e[6 q"
+let &t_EI = "\e[2 q"
+set cursorline
+set nocursorcolumn
 
 " Searching
 set incsearch
@@ -82,19 +88,19 @@ let plugdir = '~/.vim/plugged'
 
 call plug#begin(plugdir)
 
-  " Analysis
-  Plug 'dense-analysis/ale'
+" Analysis
+Plug 'dense-analysis/ale'
 
-  " Editor Tree
-  Plug 'preservim/nerdtree'
+" Editor Tree
+Plug 'preservim/nerdtree'
 
-  " Git Integration
-  Plug 'tpope/vim-fugitive'
+" Git Integration
+Plug 'tpope/vim-fugitive'
 
-  " Vim Airline for top and bottom bar
-  Plug 'powerline/powerline'
-  Plug 'vim-airline/vim-airline'
-  Plug 'vim-airline/vim-airline-themes'
+" Vim Airline for top and bottom bar
+Plug 'powerline/powerline'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 
 call plug#end()
 
@@ -162,7 +168,6 @@ augroup cursor_off
     autocmd WinEnter * set cursorline nocursorcolumn
 augroup END
 
-
 " Set up C autoformatter
 augroup autoformat
     autocmd!
@@ -176,64 +181,65 @@ augroup END
 " Status Line config using Airline (see :help airline)
 function! AirlineInitConfig()
 
-  let g:airline_powerline_fonts = 1
-  let g:airline_detect_modified = 1
-  let g:airline_detect_spell = 1
-  let g:airline_theme = 'molokai'
+    let g:airline_powerline_fonts = 1
+    let g:airline_detect_modified = 1
+    let g:airline_detect_spell = 1
+    let g:airline_theme = 'molokai'
 
-  " Extensions
-  let g:airline_extensions = ['ale', 'branch', 'tabline']
-  " ALE
-  let airline#extensions#ale#error_symbol = 'E:'
-  let airline#extensions#ale#warning_symbol = 'W:'
-  let airline#extensions#ale#show_line_numbers = 1
-  let airline#extensions#ale#open_lnum_symbol = '(L'
-  let airline#extensions#ale#close_lnum_symbol = ')'
-  " Branch
-  let g:airline#extensions#branch#empty_message = 'No Commit'
-  " Tabline
-  let g:airline#extensions#tabline#formatter = 'unique_tail'
+    " Extensions
+    let g:airline_extensions = ['ale', 'branch', 'tabline']
+    " ALE
+    let airline#extensions#ale#error_symbol = 'E:'
+    let airline#extensions#ale#warning_symbol = 'W:'
+    let airline#extensions#ale#show_line_numbers = 1
+    let airline#extensions#ale#open_lnum_symbol = '(L'
+    let airline#extensions#ale#close_lnum_symbol = ')'
+    " Branch
+    let g:airline#extensions#branch#empty_message = 'No Commit'
+    " Tabline
+    let g:airline#extensions#tabline#formatter = 'unique_tail'
 
-  " Symbols
-  if !exists('g:airline_symbols')
-      let g:airline_symbols = {}
-  endif
+    " Symbols
+    if !exists('g:airline_symbols')
+        let g:airline_symbols = {}
+    endif
 
-  let g:airline_left_sep = '»'
-  let g:airline_left_sep = '▶'
-  let g:airline_left_sep = '⮀'
-  let g:airline_left_alt_sep = '⮁'
-  let g:airline_right_sep = '«'
-  let g:airline_right_sep = '◀'
-  let g:airline_right_sep = '⮂'
-  let g:airline_right_alt_sep = '⮃'
-  let g:airline_symbols.colnr = ' ㏇:'
-  let g:airline_symbols.colnr = ' ℅:'
-  let g:airline_symbols.crypt = '🔒'
-  let g:airline_symbols.linenr = '☰'
-  let g:airline_symbols.linenr = ''
-  let g:airline_symbols.linenr = '¶'
-  let g:airline_symbols.branch = ''
-  let g:airline_symbols.paste = 'ρ'
-  let g:airline_symbols.paste = 'Þ'
-  let g:airline_symbols.paste = '∥'
-  let g:airline_symbols.spell = 'Ꞩ'
-  let g:airline_symbols.notexists = 'Ɇ'
-  let g:airline_symbols.notexists = '∄'
-  let g:airline_symbols.whitespace = 'Ξ'
+    let g:airline_left_sep = '»'
+    let g:airline_left_sep = '▶'
+    let g:airline_left_sep = '⮀'
+    let g:airline_left_alt_sep = '⮁'
+    let g:airline_right_sep = '«'
+    let g:airline_right_sep = '◀'
+    let g:airline_right_sep = '⮂'
+    let g:airline_right_alt_sep = '⮃'
+    let g:airline_symbols.colnr = ' ㏇:'
+    let g:airline_symbols.colnr = ' ℅:'
+    let g:airline_symbols.crypt = '🔒'
+    let g:airline_symbols.linenr = '☰'
+    let g:airline_symbols.linenr = '␊'
+    let g:airline_symbols.linenr = '␤'
+    let g:airline_symbols.linenr = '¶'
+    let g:airline_symbols.branch = '⎇'
+    let g:airline_symbols.paste = 'ρ'
+    let g:airline_symbols.paste = 'Þ'
+    let g:airline_symbols.paste = '∥'
+    let g:airline_symbols.spell = 'Ꞩ'
+    let g:airline_symbols.notexists = 'Ɇ'
+    let g:airline_symbols.notexists = '∄'
+    let g:airline_symbols.whitespace = 'Ξ'
 
-  let g:airline_symbols.branch = '⭠'
-  let g:airline_symbols.readonly = '⭤'
-  let g:airline_symbols.linenr = '⭡'
+    let g:airline_symbols.branch = '⭠'
+    let g:airline_symbols.readonly = '⭤'
+    let g:airline_symbols.linenr = '⭡'
 
 
-  " Sections
-  let g:airline_section_a = airline#section#create(['mode',' ','branch'])
-  let g:airline_section_b = airline#section#create_left(['ffenc','hunks','%f'])
-  let g:airline_section_c = airline#section#create(['filetype'])
-  let g:airline_section_x = airline#section#create(['%P'])
-  let g:airline_section_y = airline#section#create(['Hex: %B'])
-  let g:airline_section_z = airline#section#create_right(['l: %l','c: %c','%p%%'])
+    " Sections
+    let g:airline_section_a = airline#section#create(['mode',' ','branch'])
+    let g:airline_section_b = airline#section#create_left(['ffenc','hunks','%f'])
+    let g:airline_section_c = airline#section#create(['filetype'])
+    let g:airline_section_x = airline#section#create(['%P'])
+    let g:airline_section_y = airline#section#create(['Hex: %B'])
+    let g:airline_section_z = airline#section#create_right(['l: %l','c: %c','%p%%'])
 endfunction
 autocmd User AirlineAfterInit call AirlineInitConfig()
 
