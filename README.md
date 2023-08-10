@@ -74,7 +74,7 @@ setlocal autoindent     " Automatically indent new lines
 
 ## Screenshots
 
-![Image of VIMRC](/attachements/vimrc.png)
+![Image of VIMRC](attachements/vimrc.png)
 An image of the VIMRC file.
 
 ![Output from ALE](attachements/ALE-Details.png)
