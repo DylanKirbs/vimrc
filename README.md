@@ -67,11 +67,9 @@ This can be done by creating a file in the `after/ftplugin` directory with the n
 For example:
 ```vim
 " after/ftplugin/python.vim
-
-" Set the tab size to 4
-setlocal tabstop=4
-setlocal shiftwidth=4
-setlocal expandtab
+setlocal textwidth=80   " Set the textwidth to 80 characters
+setlocal noexpandtab    " Use tabs instead of spaces
+setlocal autoindent     " Automatically indent new lines
 ```
 
 ## Screenshots
