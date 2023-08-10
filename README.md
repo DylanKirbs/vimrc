@@ -56,6 +56,24 @@ As well as the following colorschemes:
 
 Feel free to explore the VIMRC file you've downloaded. It's a plain text file, so you can modify it using any text editor. Within the VIMRC, you'll find comments that explain various sections. If you're comfortable with Vimscript, you can tailor the settings to match your preferences.
 
+I highly recommend reading the [Vim documentation](http://vimdoc.sourceforge.net/htmldoc/usr_toc.html) to learn more about Vimscript and how to customize your VIMRC.
+
+### Language Specific Settings
+
+I recommend that you do your language specific settings in the `after/ftplugin` directory, this way you can keep your VIMRC clean and organized.
+
+This can be done by creating a file in the `after/ftplugin` directory with the name of the filetype, for example `after/ftplugin/python.vim` for Python specific settings.
+
+For example:
+```vim
+" after/ftplugin/python.vim
+
+" Set the tab size to 4
+setlocal tabstop=4
+setlocal shiftwidth=4
+setlocal expandtab
+```
+
 ## Screenshots
 
 ![Image of VIMRC](/attachements/vimrc.png)
