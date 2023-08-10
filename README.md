@@ -12,11 +12,24 @@ A VIMRC (Vim Run Commands) is a plain text file that houses a collection of Vim 
 
 Setting up your Vim environment with this simplified VIMRC is straightforward:
 
-1. **Download**: Obtain the VIMRC file from this repository.
+This Repository contains two important files:
+- `.vimrc` - The VIMRC file.
+- `init.vim` - The additional VIMRC file for Neovim.
 
-2. **Placement**: Place the downloaded `.vimrc` file in your home directory (`~`), which is the default location for Vim to find configuration files. Or in `~/.config/nvim/init.vim` if you are using Neovim. 
+As well as an installation script:
+- `install.sh` - The installation script.
 
-3. **Activation**: Open Vim by typing `vim` in your terminal. Make sure to set the `configdir` to the desired directory for all of your installations and plugins then, inside Vim, run the command `:source %` (colon, source, space, percent symbol), and then press Enter. This command loads the settings from the VIMRC file into your Vim environment.
+Either copy the `.vimrc` to your home directory (and the `init.vim` to `.config/nvim/init.vim` if you are using Neovim) or run the installation script, which does it for you.
+
+```bash
+# Plain Vim installation
+$ ./install.sh
+
+# Neovim installation
+$ ./install.sh --neovim
+```
+
+It is recommended to use the installer as it will source the VIMRC for you.
 
 That's it! Your Vim environment is now equipped with the enhanced settings and optimizations provided by the VIMRC file.
 The script is designed to automatically perform some setup and install some plugins, all of this can be modified and all of the sections are labeled with comments.
