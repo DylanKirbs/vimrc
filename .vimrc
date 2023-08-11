@@ -32,26 +32,34 @@ endif
 
 set nocompatible
 
+colorscheme molokai
+
+" Set the tab width to 4 spaces
+set number
+set shiftwidth=4
+set tabstop=4
+set expandtab
+
+" Custom Backup
+set nobackup
+set history=1000
+
+" Scroll and wrap
+set scrolloff=10
+set nowrap
+
+" Modify language specific configs /after/ftplugin/{filetype}.vim
+" Eg:
+"   ~/.vim/after/ftplugin/python.vim
+"   setlocal expandtab tabstop=4 shiftwidth=4 softtabstop=4
 filetype on
 filetype plugin on
 filetype indent on
 
+" Modify language specific syntax /syntax/{filetype}.vim
+" Eg:
+"   ~/.vim/syntax/python.vim
 syntax on
-colorscheme molokai
-
-set history=1000
-
-set nospell
-
-set number
-set shiftwidth=4
-set tabstop=4
-set nobackup
-set scrolloff=10
-set nowrap
-
-" Use spaces by default, can be modified in /after/ftplugin/{filetype}.vim
-set expandtab
 
 " Cursor Type
 let &t_SI = "\e[6 q"
@@ -206,15 +214,11 @@ function! AirlineInitConfig()
 
     let g:airline_left_sep = '»'
     let g:airline_left_sep = '▶'
-    let g:airline_left_sep = '⮀'
     let g:airline_left_sep = ''
-    let g:airline_left_alt_sep = '⮁'
     let g:airline_left_alt_sep = ''
     let g:airline_right_sep = '«'
     let g:airline_right_sep = '◀'
-    let g:airline_right_sep = '⮂'
     let g:airline_right_sep = ''
-    let g:airline_right_alt_sep = '⮃'
     let g:airline_right_alt_sep = ''
     let g:airline_symbols.colnr = ' ㏇:'
     let g:airline_symbols.colnr = ' ℅:'
