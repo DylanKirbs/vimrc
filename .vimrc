@@ -26,6 +26,12 @@ if empty(glob('~/.vim/autoload/plug.vim'))
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
+" Auto update the Vimrc
+function! UpdateRC()
+    silent execute '!curl -fLo ~/.vimrc https://raw.githubusercontent.com/DylanKirbs/vimrc/master/.vimrc'
+endfunction
+autocmd VimEnter * call UpdateRC() | source $MYVIMRC
+
 " }}}
 
 " BASIC CONFIG ------------------------------------------------ {{{
