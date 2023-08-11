@@ -88,7 +88,11 @@ set wildignore=*.docx,*.jpg,*.png,*.gif,*.pdf,*.pyc,*.exe,*.flv,*.img,*.xlsx
 " CUSTOM COMMANDS --------------------------------------------- {{{
 
 " command! -nargs=+ Name :function <args>
-command! UpdateRC :execute '!curl -fLo ~/.vimrc.temp https://raw.githubusercontent.com/DylanKirbs/vimrc/master/.vimrc'
+function UpdateRC()
+    execute '!curl -fLo ~/.vimrc.temp https://raw.githubusercontent.com/DylanKirbs/vimrc/master/.vimrc'
+    source $MYVIMRC
+endfunction
+command! UpdateRC :call UpdateRC()
 
 
 " }}}
