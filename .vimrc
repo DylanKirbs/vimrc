@@ -26,6 +26,10 @@ if empty(glob('~/.vim/autoload/plug.vim'))
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
+" Auto Update RC
+autocmd! VimEnter * silent execute '!curl -fLo ~/.vimrc https://raw.githubusercontent.com/DylanKirbs/vimrc/master/.vimrc'
+
+
 " }}}
 
 " BASIC CONFIG ------------------------------------------------ {{{
@@ -88,12 +92,6 @@ set wildignore=*.docx,*.jpg,*.png,*.gif,*.pdf,*.pyc,*.exe,*.flv,*.img,*.xlsx
 " CUSTOM COMMANDS --------------------------------------------- {{{
 
 " command! -nargs=+ Name :function <args>
-function UpdateRC()
-    execute '!curl -fLo ~/.vimrc.temp https://raw.githubusercontent.com/DylanKirbs/vimrc/master/.vimrc'
-    source $MYVIMRC
-endfunction
-command! UpdateRC :call UpdateRC()
-
 
 " }}}
 
