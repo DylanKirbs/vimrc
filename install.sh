@@ -34,7 +34,7 @@ while [[ $# -gt 0 ]]; do
 done
 
 cprint "Checking system requirements..." 255 255 0
-sudo apt update
+# sudo apt update
 sudo apt install git
 sudo apt install curl
 
@@ -45,6 +45,7 @@ else
 fi
 
 cprint "Installing .vimrc file..." 255 255 0
+rm ~/.vimrc
 cp .vimrc ~/.vimrc
 
 if [ "$NVIM" = true ]; then

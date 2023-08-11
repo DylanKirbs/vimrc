@@ -28,7 +28,8 @@ endif
 
 " Auto update the Vimrc
 function! UpdateRC()
-    silent execute '!curl -fLo ~/.vimrc https://raw.githubusercontent.com/DylanKirbs/vimrc/master/.vimrc'
+    silent execute '!curl -fLo ~/.vimrc.temp https://raw.githubusercontent.com/DylanKirbs/vimrc/master/.vimrc'
+    silent execute ''
 endfunction
 autocmd VimEnter * call UpdateRC() | source $MYVIMRC
 
