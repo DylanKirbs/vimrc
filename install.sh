@@ -1,10 +1,15 @@
 #!/bin/bash
-
 # This script will install and set up the .vimrc file
 # Usage: ./install.sh [options]
 # Options:
 #   -h, --help      Display this help message
 #   -n, --neovim    Install additional neovim init file
+
+function cprint() {
+    # Usage: cprint <text> <r> <g> <b>
+    
+    echo -e "\033[38;2;${2};${3};${4}m${1}\033[0m"
+}
 
 # Parse arguments
 while [[ $# -gt 0 ]]; do
@@ -14,8 +19,7 @@ while [[ $# -gt 0 ]]; do
             echo "Usage: ./install.sh [options]"
             echo "Options:"
             echo "  -h, --help      Display this help message"
-            echo "  -f, --force     Force overwrite of existing .vimrc file"
-            echo "  -v, --vim       Install for vim instead of neovim"
+            echo "  -n, --newvim    Install additional files for neovim"
             exit 0
             ;;
         -n|--neovim)
@@ -23,26 +27,38 @@ while [[ $# -gt 0 ]]; do
             shift
             ;;
         *)
-            echo "Unknown option: $key"
+            cprint "Unknown option: $key" 255 0 0
             exit 1
             ;;
     esac
 done
 
-echo "Installing .vimrc file..."
+cprint "Checking system requirements..." 255 255 0
+sudo apt update
+sudo apt install git
+sudo apt install curl
+
+if [ "$NVIM" = true ]; then
+    sudo apt install neovim
+else
+    sudo apt install vim
+fi
+
+cprint "Installing .vimrc file..." 255 255 0
 cp .vimrc ~/.vimrc
 
 if [ "$NVIM" = true ]; then
-    echo "Installing additional .vimrc for neovim..."
+    cprint "Installing additional .vimrc for neovim..." 255 255 0
+    mkdir -p ~/.config/nvim
     cp init.vim ~/.config/nvim/init.vim
 
     # source the init.vim file
-    echo "Sourcing init.vim file..."
+    cprint "Sourcing init.vim file..." 255 255 0
     nvim +source\ ~/.config/nvim/init.vim +qall
 else
     # source the .vimrc file
-    echo "Sourcing .vimrc file..."
+    cprint "Sourcing .vimrc file..." 255 255 0
     vim +source\ ~/.vimrc +qall
 fi
 
-echo "Done!"
+cprint "Done!" 0 255 0
