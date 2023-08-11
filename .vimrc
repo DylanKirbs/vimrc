@@ -111,8 +111,8 @@ let NERDTreeIgnore=['\.git$', '\.jpg$', '\.mp4$', '\.ogg$', '\.iso$', '\.pdf$', 
 
 " MAPPINGS ---------------------------------------------------- {{{
 
-" Typing :: or :w quickly will change to command mode
-inoremap :: <esc>:
+" Typing ::: or :w quickly will change to command mode
+inoremap ::: <esc>:
 inoremap :w <esc>:w<CR>i
 
 " Pressing the letter o will open a new line below the current one.
@@ -207,11 +207,15 @@ function! AirlineInitConfig()
     let g:airline_left_sep = '»'
     let g:airline_left_sep = '▶'
     let g:airline_left_sep = '⮀'
+    let g:airline_left_sep = ''
     let g:airline_left_alt_sep = '⮁'
+    let g:airline_left_alt_sep = ''
     let g:airline_right_sep = '«'
     let g:airline_right_sep = '◀'
     let g:airline_right_sep = '⮂'
+    let g:airline_right_sep = ''
     let g:airline_right_alt_sep = '⮃'
+    let g:airline_right_alt_sep = ''
     let g:airline_symbols.colnr = ' ㏇:'
     let g:airline_symbols.colnr = ' ℅:'
     let g:airline_symbols.crypt = '🔒'
@@ -227,11 +231,6 @@ function! AirlineInitConfig()
     let g:airline_symbols.notexists = 'Ɇ'
     let g:airline_symbols.notexists = '∄'
     let g:airline_symbols.whitespace = 'Ξ'
-
-    let g:airline_symbols.branch = '⭠'
-    let g:airline_symbols.readonly = '⭤'
-    let g:airline_symbols.linenr = '⭡'
-
 
     " Sections
     let g:airline_section_a = airline#section#create(['mode',' ','branch'])
