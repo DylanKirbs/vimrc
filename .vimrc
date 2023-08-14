@@ -29,7 +29,6 @@ endif
 " Auto Update RC
 autocmd! VimEnter * silent execute '!curl -fLo ~/.vimrc https://raw.githubusercontent.com/DylanKirbs/vimrc/master/.vimrc'
 
-
 " }}}
 
 " BASIC CONFIG ------------------------------------------------ {{{
