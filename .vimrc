@@ -13,6 +13,8 @@
 "                 ╚═══╝  ╚═╝╚═╝     ╚═╝╚═╝  ╚═╝ ╚═════╝                   "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+let autoupdate = 1
+
 " AUTOMATIC SETUP --------------------------------------------- {{{
 
 " Molokai Colorscheme
@@ -27,7 +29,9 @@ if empty(glob('~/.vim/autoload/plug.vim'))
 endif
 
 " Auto Update RC
-autocmd! VimEnter * silent execute '!curl -fLo ~/.vimrc https://raw.githubusercontent.com/DylanKirbs/vimrc/master/.vimrc'
+if ($autoupdate == 1)
+    autocmd! VimEnter * silent execute '!curl -fLo ~/.vimrc https://raw.githubusercontent.com/DylanKirbs/vimrc/master/.vimrc'
+endif
 
 " }}}
 
