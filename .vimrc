@@ -78,6 +78,8 @@ let &t_SI = "\e[6 q"
 let &t_EI = "\e[2 q"
 set cursorline
 set nocursorcolumn
+set ttymouse=xterm2
+set mouse=a
 
 " Searching
 set incsearch
