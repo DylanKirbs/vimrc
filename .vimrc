@@ -262,12 +262,29 @@ function! AirlineInitConfig()
     let g:airline_symbols.whitespace = 'Ξ'
 
     " Sections
-    let g:airline_section_a = airline#section#create(['mode',' ','branch'])
-    let g:airline_section_b = airline#section#create_left(['ffenc','hunks','%f'])
+    let g:airline_section_a = airline#section#create(['mode','branch'])
+    let g:airline_section_b = airline#section#create_left(['ffenc','%f'])
     let g:airline_section_c = airline#section#create(['filetype'])
     let g:airline_section_x = airline#section#create(['%P'])
     let g:airline_section_y = airline#section#create(['Hex: %B'])
     let g:airline_section_z = airline#section#create_right(['l: %l','c: %c','%p%%'])
+
+  let g:airline_filetype_overrides = {
+      \ 'coc-explorer':  [ 'CoC Explorer', '' ],
+      \ 'defx':  ['defx', '%{b:defx.paths[0]}'],
+      \ 'fugitive': ['fugitive', '%{airline#util#wrap(airline#extensions#branch#get_head(),80)}'],
+      \ 'floggraph':  [ 'Flog', '%{get(b:, "flog_status_summary", "")}' ],
+      \ 'gundo': [ 'Gundo', '' ],
+      \ 'help':  [ 'Help', '%f' ],
+      \ 'minibufexpl': [ 'MiniBufExplorer', '' ],
+      \ 'nerdtree': [ get(g:, 'NERDTreeStatusline', 'NERD'), '' ],
+      \ 'startify': [ 'startify', '' ],
+      \ 'vim-plug': [ 'Plugins', '' ],
+      \ 'vimfiler': [ 'vimfiler', '%{vimfiler#get_status_string()}' ],
+      \ 'vimshell': ['vimshell','%{vimshell#get_status_string()}'],
+      \ 'vaffle' : [ 'Vaffle', '%{b:vaffle.dir}' ],
+      \ }
+
 endfunction
 autocmd User AirlineAfterInit call AirlineInitConfig()
 
