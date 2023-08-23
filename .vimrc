@@ -55,6 +55,11 @@ set history=1000
 set scrolloff=10
 set nowrap
 
+" Autocompletion
+set complete+=kspell
+set completeopt=menuone,longest
+set shortmess+=c
+
 " Modify language specific configs /after/ftplugin/{filetype}.vim
 " Eg:
 "   ~/.vim/after/ftplugin/python.vim
@@ -117,6 +122,9 @@ Plug 'powerline/powerline'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
+" Autocomplete Popup
+Plug 'vim-scripts/AutoComplPop'
+
 call plug#end()
 
 " Plugin Config
@@ -158,6 +166,16 @@ noremap <c-right> <c-w><
 
 " Map the F3 key to toggle NERDTree open and close.
 nnoremap <F3> :NERDTreeToggle<cr>
+
+" Autocomplete menu
+" Navigate (Up, Down)
+inoremap <expr> <Down> pumvisible() ? "<C-n>" :"<Down>"
+inoremap <expr> <Up> pumvisible() ? "<C-p>" :"<Up>"
+" Select choice (Right, Tab)
+inoremap <expr> <Right> pumvisible() ? "<C-y>" :"<Right>"
+inoremap <expr> <Tab> pumvisible() ? "<C-y>" :"<Tab>"
+" Cancel choice (Left)
+inoremap <expr> <Left> pumvisible() ? "<C-e>" :"<Left>"
 
 " }}}
 
