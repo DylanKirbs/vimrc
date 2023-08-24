@@ -127,10 +127,14 @@ Plug 'vim-airline/vim-airline-themes'
 " Autocomplete Popup
 Plug 'vim-scripts/AutoComplPop'
 
+" Clang Complete
+Plug 'xavierd/clang_complete'
+
 call plug#end()
 
 " Plugin Config
-let NERDTreeIgnore=['\.git$', '\.jpg$', '\.mp4$', '\.ogg$', '\.iso$', '\.pdf$', '\.pyc$', '\.odt$', '\.png$', '\.gif$', '\.db$']
+let NERDTreeIgnore=['\.git$', '\.jpg$', '\.mp4$', '\.ogg$', '\.iso$', '\.pdf$', '\.pyc$', '\.odt$', '\.png$', '\.gif$', '\.db$'] 
+let g:clang_library_path='/usr/lib/llvm-14/lib/libclang-14.so.1'
 
 " }}}
 
